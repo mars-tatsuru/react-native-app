@@ -16,16 +16,18 @@ export default function Header() {
 
 const styles = StyleSheet.create({
   header: {
+    width: "100%",
     alignSelf: "stretch",
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginBottom: 20,
     backgroundColor: "#35784A",
     paddingTop: 60,
     paddingBottom: 15,
     paddingLeft: 10,
     paddingRight: 10,
+    zIndex: 1,
+    height: 100,
   },
   headerText: {
     fontSize: 14,

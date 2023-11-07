@@ -6,7 +6,11 @@ import {
   Image,
   Pressable,
   ImageSourcePropType,
+  Dimensions,
 } from "react-native";
+
+const screenWidth = Dimensions.get("window").width;
+const cardWidth = (screenWidth * 45) / 100;
 
 export default function Card({
   cardTitle,
@@ -28,8 +32,6 @@ export default function Card({
 
 const styles = StyleSheet.create({
   card: {
-    flexGrow: 1,
-    flexDirection: "column",
     position: "relative",
     overflow: "hidden",
     backgroundColor: "#fff",
@@ -37,6 +39,7 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     paddingRight: 10,
     paddingBottom: 0,
+    width: cardWidth,
     height: 200,
     borderWidth: 1,
     borderColor: "#ddd",
@@ -44,14 +47,14 @@ const styles = StyleSheet.create({
   },
 
   shadowProp: {
-    shadowColor: "black",
-    shadowOffset: {
-      width: 2,
-      height: 4,
-    },
-    shadowOpacity: 0.3,
-    shadowRadius: 6,
-    elevation: 14,
+    // shadowColor: "black",
+    // shadowOffset: {
+    //   width: 2,
+    //   height: 4,
+    // },
+    // shadowOpacity: 0.3,
+    // shadowRadius: 6,
+    // elevation: 14,
   },
 
   cardTitle: {
