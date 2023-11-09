@@ -8,6 +8,7 @@ import {
   ScrollView,
   SafeAreaView,
   FlatList,
+  Dimensions,
 } from "react-native";
 
 import Header from "./components/Header";
@@ -69,6 +70,10 @@ const cardData: CardDataType[] = [
   },
 ];
 
+const screenWidth = Dimensions.get("window").width - 20;
+const commonWidth = screenWidth - 10;
+const gap = 10;
+
 export default function App() {
   return (
     <View style={styles.container}>
@@ -76,7 +81,7 @@ export default function App() {
       <Header />
 
       <ScrollView
-        style={styles.containerInner}
+        style={{ marginTop: 20, marginBottom: 20 }}
         showsVerticalScrollIndicator={false}
       >
         <View style={styles.imageContainer}>
@@ -84,8 +89,11 @@ export default function App() {
         </View>
 
         <FlatList
-          contentContainerStyle={styles.cardContainer}
+          contentContainerStyle={{ gap, alignItems: "center" }}
+          columnWrapperStyle={{ gap }}
           data={cardData}
+          numColumns={2}
+          keyExtractor={(item, index) => `${item}${index}`}
           renderItem={(itemData) => (
             <Card
               key={itemData.index}
@@ -109,29 +117,14 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
   },
 
-  containerInner: {
-    width: "100%",
-    backgroundColor: "#fff",
-  },
-
   imageContainer: {
     alignItems: "center",
-    marginTop: 20,
     marginBottom: 20,
   },
 
   image: {
-    width: "95%",
+    width: commonWidth,
     height: 200,
     borderRadius: 10,
-  },
-
-  cardContainer: {
-    position: "relative",
-    flexDirection: "row",
-    flexWrap: "wrap",
-    justifyContent: "center",
-    gap: 10,
-    marginBottom: 20,
   },
 });

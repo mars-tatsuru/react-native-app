@@ -9,20 +9,19 @@ import {
   Dimensions,
 } from "react-native";
 
-const screenWidth = Dimensions.get("window").width;
-const cardWidth = (screenWidth * 45) / 100;
-
 export default function Card({
   cardTitle,
   cardText,
   image,
+  gap,
 }: {
   cardTitle: string;
   cardText: string;
   image: ImageSourcePropType;
+  gap?: boolean;
 }) {
   return (
-    <View style={[styles.card, styles.shadowProp]}>
+    <View style={styles.card}>
       <Text style={styles.cardTitle}>{cardTitle}</Text>
       <Text style={styles.cardText}>{cardText}</Text>
       <Image source={image} style={styles.image} />
@@ -39,22 +38,11 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     paddingRight: 10,
     paddingBottom: 0,
-    width: cardWidth,
     height: 200,
+    width: Dimensions.get("window").width / 2 - 20,
     borderWidth: 1,
     borderColor: "#ddd",
     borderRadius: 15,
-  },
-
-  shadowProp: {
-    // shadowColor: "black",
-    // shadowOffset: {
-    //   width: 2,
-    //   height: 4,
-    // },
-    // shadowOpacity: 0.3,
-    // shadowRadius: 6,
-    // elevation: 14,
   },
 
   cardTitle: {
