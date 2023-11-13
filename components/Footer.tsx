@@ -42,12 +42,11 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     width: "100%",
     paddingTop: 10,
-    paddingBottom: 20,
+    paddingBottom: 10,
     paddingLeft: 30,
     paddingRight: 30,
     borderTopColor: "#ccc",
     borderTopWidth: 1,
-    height: 80,
   },
   footerBtn: {
     alignItems: "center",

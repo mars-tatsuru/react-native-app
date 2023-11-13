@@ -9,17 +9,20 @@ import {
   SafeAreaView,
   FlatList,
   Dimensions,
+  Button,
 } from "react-native";
+import { Link } from "expo-router";
+import { Stack } from "expo-router";
 
-import Header from "./components/Header";
-import Card from "./components/Card";
-import Footer from "./components/Footer";
+import Header from "../components/Header";
+import Card from "../components/Card";
+import Footer from "../components/Footer";
 
-import Kv from "./assets/images/kv.png";
-import CardImg_01 from "./assets/images/sets.png";
-import CardImg_02 from "./assets/images/drinks.png";
-import CardImg_03 from "./assets/images/sandwiches.png";
-import CardImg_04 from "./assets/images/sides.png";
+import Kv from "../assets/images/kv.png";
+import CardImg_01 from "../assets/images/sets.png";
+import CardImg_02 from "../assets/images/drinks.png";
+import CardImg_03 from "../assets/images/sandwiches.png";
+import CardImg_04 from "../assets/images/sides.png";
 
 type CardDataType = {
   cardTitle: string;
@@ -77,9 +80,6 @@ const gap = 10;
 export default function App() {
   return (
     <View style={styles.container}>
-      <StatusBar style="auto" />
-      <Header />
-
       <ScrollView
         style={{ marginTop: 20, marginBottom: 20 }}
         showsVerticalScrollIndicator={false}
@@ -104,8 +104,6 @@ export default function App() {
           )}
         />
       </ScrollView>
-
-      <Footer />
     </View>
   );
 }

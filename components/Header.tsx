@@ -1,5 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, Image, Pressable } from "react-native";
+import { Link, Stack } from "expo-router";
 
 import SettingIcon from "../assets/images/setting.png";
 
@@ -22,12 +23,11 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     backgroundColor: "#35784A",
-    paddingTop: 60,
-    paddingBottom: 15,
+    paddingTop: 25,
+    paddingBottom: 25,
     paddingLeft: 10,
     paddingRight: 10,
     zIndex: 1,
-    height: 100,
   },
   headerText: {
     fontSize: 14,
