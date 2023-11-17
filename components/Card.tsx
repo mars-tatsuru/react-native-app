@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     paddingRight: 10,
     paddingBottom: 0,
-    height: 200,
+    height: 180,
     width: Dimensions.get("window").width / 2 - 20,
     borderWidth: 1,
     borderColor: "#ddd",

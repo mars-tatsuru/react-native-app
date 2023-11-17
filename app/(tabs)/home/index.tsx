@@ -1,4 +1,5 @@
 import { StatusBar } from "expo-status-bar";
+import { WebView } from "react-native-webview";
 import {
   StyleSheet,
   Text,
@@ -23,6 +24,7 @@ import CardImg_01 from "../../../assets/images/sets.png";
 import CardImg_02 from "../../../assets/images/drinks.png";
 import CardImg_03 from "../../../assets/images/sandwiches.png";
 import CardImg_04 from "../../../assets/images/sides.png";
+import { useEffect, useRef } from "react";
 
 type CardDataType = {
   cardTitle: string;
@@ -51,26 +53,26 @@ const cardData: CardDataType[] = [
     cardText: "ここに何か文字が欲しい",
     image: CardImg_04,
   },
-  {
-    cardTitle: "Sets",
-    cardText: "ここに何か文字が欲しい",
-    image: CardImg_01,
-  },
-  {
-    cardTitle: "Drinks",
-    cardText: "ここに何か文字が欲しい",
-    image: CardImg_02,
-  },
-  {
-    cardTitle: "Sandwiches",
-    cardText: "ここに何か文字が欲しい",
-    image: CardImg_03,
-  },
-  {
-    cardTitle: "Sides",
-    cardText: "ここに何か文字が欲しい",
-    image: CardImg_04,
-  },
+  // {
+  //   cardTitle: "Sets",
+  //   cardText: "ここに何か文字が欲しい",
+  //   image: CardImg_01,
+  // },
+  // {
+  //   cardTitle: "Drinks",
+  //   cardText: "ここに何か文字が欲しい",
+  //   image: CardImg_02,
+  // },
+  // {
+  //   cardTitle: "Sandwiches",
+  //   cardText: "ここに何か文字が欲しい",
+  //   image: CardImg_03,
+  // },
+  // {
+  //   cardTitle: "Sides",
+  //   cardText: "ここに何か文字が欲しい",
+  //   image: CardImg_04,
+  // },
 ];
 
 const screenWidth = Dimensions.get("window").width - 20;
@@ -108,6 +110,10 @@ export default function App() {
           )}
         /> */}
 
+          <Link href={"/home/detail-page"}>
+            <Text style={{ fontSize: 24 }}>go to detail page</Text>
+          </Link>
+
           <View
             style={{
               flexDirection: "row",
@@ -129,6 +135,9 @@ export default function App() {
         </ScrollView>
       </View>
     </>
+    // <SafeAreaView style={{ flex: 1 }}>
+    //   <WebView ref={webViewRef} source={{ uri: "https://reactnative.dev/" }} />
+    // </SafeAreaView>
   );
 }
 
