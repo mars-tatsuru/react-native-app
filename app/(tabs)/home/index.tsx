@@ -110,10 +110,6 @@ export default function App() {
           )}
         /> */}
 
-          <Link href={"/home/detail-page"}>
-            <Text style={{ fontSize: 24 }}>go to detail page</Text>
-          </Link>
-
           <View
             style={{
               flexDirection: "row",

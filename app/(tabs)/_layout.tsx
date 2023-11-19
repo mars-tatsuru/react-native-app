@@ -5,9 +5,6 @@ export default function TabsLayout() {
   return (
     <Tabs
       screenOptions={({ route }) => ({
-        // tabBarStyle: {
-        //   // display: route.name === "menu" ? "none" : "flex",
-        // },
         headerShown: false,
       })}
     >
@@ -40,10 +37,6 @@ export default function TabsLayout() {
             <TabBarIcon focused={focused} name="person" />
           ),
         }}
-        // options={{
-        //   // This tab will no longer show up in the tab bar.
-        //   href: null,
-        // }}
       />
     </Tabs>
   );

@@ -1,4 +1,5 @@
 import { StatusBar } from "expo-status-bar";
+import { Link, Tabs } from "expo-router";
 import {
   StyleSheet,
   Text,
@@ -7,24 +8,37 @@ import {
   Pressable,
   ImageSourcePropType,
   Dimensions,
+  TouchableOpacity,
 } from "react-native";
+
+import { useNavigation, NavigationProp } from "@react-navigation/native";
+
+interface pageNameProps {
+  menu: undefined;
+}
 
 export default function Card({
   cardTitle,
   cardText,
   image,
-  gap,
 }: {
   cardTitle: string;
   cardText: string;
   image: ImageSourcePropType;
-  gap?: boolean;
 }) {
+  const navigation = useNavigation<NavigationProp<pageNameProps>>();
+
+  const handleCardPress = () => {
+    navigation.navigate("menu");
+  };
+
   return (
-    <View style={styles.card}>
-      <Text style={styles.cardTitle}>{cardTitle}</Text>
-      <Text style={styles.cardText}>{cardText}</Text>
-      <Image source={image} style={styles.image} />
+    <View>
+      <TouchableOpacity style={styles.card} onPress={handleCardPress}>
+        <Text style={styles.cardTitle}>{cardTitle}</Text>
+        <Text style={styles.cardText}>{cardText}</Text>
+        <Image source={image} style={styles.image} />
+      </TouchableOpacity>
     </View>
   );
 }
