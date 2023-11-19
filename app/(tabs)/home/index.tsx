@@ -7,24 +7,18 @@ import {
   Image,
   ImageSourcePropType,
   ScrollView,
-  SafeAreaView,
-  FlatList,
   Dimensions,
-  Button,
 } from "react-native";
 import { Link } from "expo-router";
 import { Stack } from "expo-router";
 
-import Header from "../../../components/Header";
 import Card from "../../../components/Card";
-import Footer from "../../../components/Footer";
 
 import Kv from "../../../assets/images/kv.png";
 import CardImg_01 from "../../../assets/images/sets.png";
 import CardImg_02 from "../../../assets/images/drinks.png";
 import CardImg_03 from "../../../assets/images/sandwiches.png";
 import CardImg_04 from "../../../assets/images/sides.png";
-import { useEffect, useRef } from "react";
 
 type CardDataType = {
   cardTitle: string;
@@ -93,23 +87,6 @@ export default function App() {
             <Image source={Kv} style={styles.image} />
           </View>
 
-          {/* TODO: これの使う意味がわからない */}
-          {/* <FlatList
-          contentContainerStyle={{ gap, alignItems: "center" }}
-          columnWrapperStyle={{ gap }}
-          data={cardData}
-          numColumns={2}
-          keyExtractor={(item, index) => `${item}${index}`}
-          renderItem={(itemData) => (
-            <Card
-              key={itemData.index}
-              cardTitle={itemData.item.cardTitle}
-              cardText={itemData.item.cardText}
-              image={itemData.item.image}
-            />
-          )}
-        /> */}
-
           <View
             style={{
               flexDirection: "row",
@@ -131,9 +108,6 @@ export default function App() {
         </ScrollView>
       </View>
     </>
-    // <SafeAreaView style={{ flex: 1 }}>
-    //   <WebView ref={webViewRef} source={{ uri: "https://reactnative.dev/" }} />
-    // </SafeAreaView>
   );
 }
 
