@@ -1,5 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { Link, Tabs } from "expo-router";
+import { Ionicons } from "@expo/vector-icons";
 import {
   StyleSheet,
   Text,
@@ -26,18 +27,16 @@ export default function Card({
   cardText: string;
   image: ImageSourcePropType;
 }) {
-  const navigation = useNavigation<NavigationProp<pageNameProps>>();
-
-  const handleCardPress = () => {
-    navigation.navigate("menu");
-  };
-
   return (
     <View>
-      <TouchableOpacity style={styles.card} onPress={handleCardPress}>
+      <TouchableOpacity style={styles.card}>
+        <Image source={image} style={styles.image} />
         <Text style={styles.cardTitle}>{cardTitle}</Text>
         <Text style={styles.cardText}>{cardText}</Text>
-        <Image source={image} style={styles.image} />
+        <View style={styles.cardBottom}>
+          <Text style={styles.price}>￥600円/730Kcal </Text>
+          <Ionicons name={"arrow-forward"} size={20} />
+        </View>
       </TouchableOpacity>
     </View>
   );
@@ -45,38 +44,50 @@ export default function Card({
 
 const styles = StyleSheet.create({
   card: {
-    position: "relative",
-    overflow: "hidden",
     backgroundColor: "#fff",
     paddingTop: 20,
-    paddingLeft: 10,
-    paddingRight: 10,
-    paddingBottom: 0,
-    height: 180,
-    width: Dimensions.get("window").width / 2 - 20,
+    paddingLeft: 20,
+    paddingRight: 20,
+    paddingBottom: 20,
     borderWidth: 1,
     borderColor: "#ddd",
     borderRadius: 15,
-  },
-
-  cardTitle: {
-    fontSize: 14,
-    fontWeight: "bold",
-    color: "#000",
-    marginBottom: 5,
-  },
-
-  cardText: {
-    fontSize: 10,
-    fontWeight: "bold",
-    color: "#9B9BAB",
+    marginBottom: 20,
+    width: Dimensions.get("window").width - 20,
   },
 
   image: {
-    position: "absolute",
-    bottom: 0,
-    right: 0,
-    width: 130,
-    height: 100,
+    width: 200,
+    height: 150,
+    marginLeft: "auto",
+    marginRight: "auto",
+    marginBottom: 10,
+  },
+
+  cardTitle: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#000",
+    marginBottom: 10,
+  },
+
+  cardText: {
+    fontSize: 12,
+    fontWeight: "bold",
+    color: "#9B9BAB",
+    lineHeight: 18,
+  },
+
+  cardBottom: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginTop: 10,
+  },
+
+  price: {
+    fontSize: 12,
+    fontWeight: "bold",
+    lineHeight: 15,
   },
 });

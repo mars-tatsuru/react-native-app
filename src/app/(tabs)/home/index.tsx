@@ -12,13 +12,13 @@ import {
 import { Link } from "expo-router";
 import { Stack } from "expo-router";
 
-import Card from "../../../components/Card";
+import Card from "src/components/Card";
 
-import Kv from "../../../assets/images/kv.png";
-import CardImg_01 from "../../../assets/images/sets.png";
-import CardImg_02 from "../../../assets/images/drinks.png";
-import CardImg_03 from "../../../assets/images/sandwiches.png";
-import CardImg_04 from "../../../assets/images/sides.png";
+import Kv from "src/assets/images/kv.png";
+import CardImg_01 from "src/assets/images/sets.png";
+import CardImg_02 from "src/assets/images/drinks.png";
+import CardImg_03 from "src/assets/images/sandwiches.png";
+import CardImg_04 from "src/assets/images/sides.png";
 
 type CardDataType = {
   cardTitle: string;

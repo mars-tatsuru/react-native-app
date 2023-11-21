@@ -1,5 +1,8 @@
 {
   "expo": {
+    "experiments": {
+      "tsconfigPaths": false
+    },
     "scheme": "myapp",
     "name": "react-native-app",
     "slug": "react-native-app",

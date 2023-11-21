@@ -1,6 +1,5 @@
 import { StatusBar } from "expo-status-bar";
 import { Link, Tabs } from "expo-router";
-import { Ionicons } from "@expo/vector-icons";
 import {
   StyleSheet,
   Text,
@@ -36,13 +35,9 @@ export default function Card({
   return (
     <View>
       <TouchableOpacity style={styles.card} onPress={handleCardPress}>
-        <Image source={image} style={styles.image} />
         <Text style={styles.cardTitle}>{cardTitle}</Text>
         <Text style={styles.cardText}>{cardText}</Text>
-        <View style={styles.cardBottom}>
-          <Text style={styles.cardText}>￥600円/730Kcal </Text>
-          <Ionicons name={"arrow-forward"} size={20} color={"#9B9BAB"} />
-        </View>
+        <Image source={image} style={styles.image} />
       </TouchableOpacity>
     </View>
   );
@@ -68,7 +63,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: "bold",
     color: "#000",
-    marginBottom: 5,
+    marginBottom: 10,
   },
 
   cardText: {
@@ -83,12 +78,5 @@ const styles = StyleSheet.create({
     right: 0,
     width: 130,
     height: 100,
-  },
-
-  cardBottom: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    marginTop: 10,
   },
 });
