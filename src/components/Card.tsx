@@ -34,11 +34,11 @@ export default function Card({
 
   return (
     <View>
-      <TouchableOpacity style={styles.card} onPress={handleCardPress}>
+      <Pressable style={styles.card} onPress={handleCardPress}>
         <Text style={styles.cardTitle}>{cardTitle}</Text>
         <Text style={styles.cardText}>{cardText}</Text>
         <Image source={image} style={styles.image} />
-      </TouchableOpacity>
+      </Pressable>
     </View>
   );
 }

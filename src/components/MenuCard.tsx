@@ -29,7 +29,7 @@ export default function Card({
 }) {
   return (
     <View>
-      <TouchableOpacity style={styles.card}>
+      <Pressable style={styles.card}>
         <Image source={image} style={styles.image} />
         <Text style={styles.cardTitle}>{cardTitle}</Text>
         <Text style={styles.cardText}>{cardText}</Text>
@@ -37,7 +37,7 @@ export default function Card({
           <Text style={styles.price}>￥600円/730Kcal </Text>
           <Ionicons name={"arrow-forward"} size={20} />
         </View>
-      </TouchableOpacity>
+      </Pressable>
     </View>
   );
 }
