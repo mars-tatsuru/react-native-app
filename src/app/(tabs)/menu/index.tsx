@@ -15,6 +15,9 @@ import CardImg_02 from "src/assets/images/drinks.png";
 import CardImg_03 from "src/assets/images/sandwiches.png";
 import CardImg_04 from "src/assets/images/sides.png";
 
+import HeaderRight from "src/components/HeaderRight";
+import HeaderLeft from "src/components/HeaderLeft";
+
 type CardDataType = {
   cardTitle: string;
   cardText: string;
@@ -55,7 +58,14 @@ const gap = 10;
 export default function Index() {
   return (
     <>
-      <Stack.Screen options={{ headerShown: true, title: "Menu" }} />
+      <Stack.Screen
+        options={{
+          headerShown: true,
+          title: "",
+          headerLeft: () => <HeaderLeft />,
+          headerRight: () => <HeaderRight />,
+        }}
+      />
 
       <View style={styles.container}>
         <ScrollView

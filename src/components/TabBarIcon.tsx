@@ -20,8 +20,8 @@ const TabBarIcon = ({ focused, name }: { focused: boolean; name: string }) => {
   return (
     <Ionicons
       name={iconName}
-      size={focused ? 20 : 20}
-      color={focused ? "blue" : "gray"}
+      size={focused ? 25 : 25}
+      color={focused ? "#35784A" : "gray"}
     />
   );
 };

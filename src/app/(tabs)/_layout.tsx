@@ -1,3 +1,4 @@
+// import { useEffect, useState } from "react";
 import { Tabs } from "expo-router";
 import TabBarIcon from "../../components/TabBarIcon";
 
@@ -6,12 +7,18 @@ export default function TabsLayout() {
     <Tabs
       screenOptions={({ route }) => ({
         headerShown: false,
+        tabBarActiveTintColor: "#35784A",
+        tabBarInactiveTintColor: "gray",
       })}
     >
       <Tabs.Screen
         name="menu"
         options={{
           tabBarLabel: "Menu",
+          tabBarLabelStyle: {
+            fontSize: 10,
+            fontWeight: "bold",
+          },
           title: "Menu",
           tabBarIcon: ({ focused }) => (
             <TabBarIcon focused={focused} name="menu" />
@@ -23,6 +30,10 @@ export default function TabsLayout() {
         options={{
           tabBarLabel: "Home",
           title: "Home",
+          tabBarLabelStyle: {
+            fontSize: 10,
+            fontWeight: "bold",
+          },
           tabBarIcon: ({ focused }) => (
             <TabBarIcon focused={focused} name="home" />
           ),
@@ -33,6 +44,10 @@ export default function TabsLayout() {
         options={{
           tabBarLabel: "Account",
           title: "Account",
+          tabBarLabelStyle: {
+            fontSize: 10,
+            fontWeight: "bold",
+          },
           tabBarIcon: ({ focused }) => (
             <TabBarIcon focused={focused} name="person" />
           ),

@@ -13,10 +13,20 @@ import {
 } from "react-native";
 import { Link, Stack } from "expo-router";
 
+import HeaderRight from "src/components/HeaderRight";
+import HeaderLeft from "src/components/HeaderLeft";
+
 export default function Index() {
   return (
     <>
-      <Stack.Screen options={{ headerShown: true, title: "Account" }} />
+      <Stack.Screen
+        options={{
+          headerShown: true,
+          title: "",
+          headerLeft: () => <HeaderLeft />,
+          headerRight: () => <HeaderRight />,
+        }}
+      />
       <View style={styles.container}>
         <Text>Account Page</Text>
         <Link href={"/menu/ACCOUNT"}>

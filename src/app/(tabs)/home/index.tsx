@@ -13,6 +13,8 @@ import { Link } from "expo-router";
 import { Stack } from "expo-router";
 
 import Card from "src/components/Card";
+import HeaderRight from "src/components/HeaderRight";
+import HeaderLeft from "src/components/HeaderLeft";
 
 import Kv from "src/assets/images/kv.png";
 import CardImg_01 from "src/assets/images/sets.png";
@@ -76,7 +78,15 @@ const gap = 10;
 export default function App() {
   return (
     <>
-      <Stack.Screen options={{ headerShown: true, title: "Home" }} />
+      <Stack.Screen
+        options={{
+          headerShown: true,
+          title: "",
+          headerTitleAlign: "left",
+          headerLeft: () => <HeaderLeft />,
+          headerRight: () => <HeaderRight />,
+        }}
+      />
 
       <View style={styles.container}>
         <ScrollView
