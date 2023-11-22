@@ -9,8 +9,7 @@ import {
   ScrollView,
   Dimensions,
 } from "react-native";
-import { Link } from "expo-router";
-import { Stack } from "expo-router";
+import { Link, Stack, Tabs } from "expo-router";
 
 import Card from "src/components/Card";
 import HeaderRight from "src/components/HeaderRight";

@@ -8,7 +8,7 @@ import {
   ScrollView,
   Dimensions,
 } from "react-native";
-import { Link, Stack } from "expo-router";
+import { Link, Stack, Tabs } from "expo-router";
 import MenuCard from "src/components/MenuCard";
 import CardImg_01 from "src/assets/images/sets.png";
 import CardImg_02 from "src/assets/images/drinks.png";
@@ -66,7 +66,6 @@ export default function Index() {
           headerRight: () => <HeaderRight />,
         }}
       />
-
       <View style={styles.container}>
         <ScrollView
           style={{ marginTop: 20, marginBottom: 20 }}

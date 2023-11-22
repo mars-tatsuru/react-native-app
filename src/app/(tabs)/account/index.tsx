@@ -11,7 +11,7 @@ import {
   Dimensions,
   Button,
 } from "react-native";
-import { Link, Stack } from "expo-router";
+import { Link, Stack, Tabs } from "expo-router";
 
 import HeaderRight from "src/components/HeaderRight";
 import HeaderLeft from "src/components/HeaderLeft";
