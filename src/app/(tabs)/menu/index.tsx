@@ -146,7 +146,9 @@ const renderTabBar = (props: TabBarProps<Route>) => (
       borderRadius: 100,
     }}
     style={{
-      backgroundColor: "transparent",
+      backgroundColor: "#fff",
+      elevation: 0,
+      shadowColor: "transparent",
       marginTop: 20,
       marginBottom: 10,
       marginLeft: 10,
