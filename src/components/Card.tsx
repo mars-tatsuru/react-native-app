@@ -1,4 +1,3 @@
-import { StatusBar } from "expo-status-bar";
 import { Link, Tabs } from "expo-router";
 import {
   StyleSheet,
@@ -10,13 +9,18 @@ import {
   Dimensions,
   TouchableOpacity,
 } from "react-native";
-
 import { useNavigation, NavigationProp } from "@react-navigation/native";
 
+/***********************
+ * components
+ *********************/
 interface pageNameProps {
   menu: undefined;
 }
 
+/***********************
+ * main render
+ *********************/
 export default function Card({
   cardTitle,
   cardText,
@@ -28,6 +32,7 @@ export default function Card({
 }) {
   const navigation = useNavigation<NavigationProp<pageNameProps>>();
 
+  // TODO: 画面遷移
   const handleCardPress = () => {
     navigation.navigate("menu");
   };
@@ -43,6 +48,9 @@ export default function Card({
   );
 }
 
+/**********************
+ * styles
+ *********************/
 const styles = StyleSheet.create({
   card: {
     position: "relative",

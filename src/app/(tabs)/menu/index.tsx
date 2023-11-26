@@ -1,6 +1,7 @@
 import * as React from "react";
 import { StatusBar } from "expo-status-bar";
 import { useWindowDimensions } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import {
   TabView,
   SceneMap,
@@ -21,9 +22,136 @@ import { Link, Stack, Tabs } from "expo-router";
 import MenuCard from "src/components/MenuCard";
 import CardImg_03 from "src/assets/images/sandwiches.png";
 
+/************************
+ * components
+ * *********************/
 import HeaderRight from "src/components/HeaderRight";
 import HeaderLeft from "src/components/HeaderLeft";
 
+const setMenuPage = () => (
+  <ScrollView
+    style={{ paddingTop: 20, marginBottom: 20 }}
+    showsVerticalScrollIndicator={false}
+    id="first"
+  >
+    <View style={styles.cardWrapper}>
+      {cardData.map((item, index) => (
+        <MenuCard
+          key={index}
+          cardTitle={item.cardTitle}
+          cardText={item.cardText}
+          image={item.image}
+        />
+      ))}
+    </View>
+  </ScrollView>
+);
+
+const sandwichesMenuPage = () => (
+  <ScrollView
+    style={{ paddingTop: 20, marginBottom: 20 }}
+    showsVerticalScrollIndicator={false}
+    id="second"
+  >
+    <View style={styles.cardWrapper}>
+      {cardData.map((item, index) => (
+        <MenuCard
+          key={index}
+          cardTitle={item.cardTitle}
+          cardText={item.cardText}
+          image={item.image}
+        />
+      ))}
+    </View>
+  </ScrollView>
+);
+
+const drinkMenuPage = () => (
+  <ScrollView
+    style={{ paddingTop: 20, marginBottom: 20 }}
+    showsVerticalScrollIndicator={false}
+    id="third"
+  >
+    <View style={styles.cardWrapper}>
+      {cardData.map((item, index) => (
+        <MenuCard
+          key={index}
+          cardTitle={item.cardTitle}
+          cardText={item.cardText}
+          image={item.image}
+        />
+      ))}
+    </View>
+  </ScrollView>
+);
+
+const sideMenuPage = () => (
+  <ScrollView
+    style={{ paddingTop: 20, marginBottom: 20 }}
+    showsVerticalScrollIndicator={false}
+    id="fourth"
+  >
+    <View style={styles.cardWrapper}>
+      {cardData.map((item, index) => (
+        <MenuCard
+          key={index}
+          cardTitle={item.cardTitle}
+          cardText={item.cardText}
+          image={item.image}
+        />
+      ))}
+    </View>
+  </ScrollView>
+);
+
+const renderTabBar = (props: TabBarProps<Route>) => (
+  <TabBar
+    {...props}
+    bounces={true}
+    // textとindicatorの位置を合わせる
+    indicatorStyle={{
+      width: Dimensions.get("window").width / 3.7,
+      height: "100%",
+      backgroundColor: "#F3C13A",
+      borderRadius: 100,
+    }}
+    style={{
+      backgroundColor: "#fff",
+      elevation: 0,
+      shadowColor: "transparent",
+      marginTop: 20,
+      marginBottom: 10,
+      marginLeft: 10,
+      marginRight: 10,
+      justifyContent: "space-between",
+    }}
+    contentContainerStyle={{}}
+    tabStyle={{
+      width: Dimensions.get("window").width / 3.7,
+      minHeight: 30,
+    }}
+    scrollEnabled
+    renderLabel={({ route, focused, color }) => (
+      <Text
+        style={{
+          color: focused ? "#fff" : "#000",
+          fontSize: 11,
+          width: "auto",
+          textAlign: "center",
+          fontWeight: "bold",
+        }}
+      >
+        {route.title}
+      </Text>
+    )}
+    gap={5}
+    onTabPress={({ route, preventDefault }) => {}}
+  />
+);
+
+/************************
+ * card contents
+ * *********************/
 type CardDataType = {
   cardTitle: string;
   cardText: string;
@@ -57,128 +185,9 @@ const cardData: CardDataType[] = [
   },
 ];
 
-// components
-const setMenuPage = () => (
-  <ScrollView
-    style={{ paddingTop: 20, marginBottom: 20 }}
-    showsVerticalScrollIndicator={false}
-  >
-    <View style={styles.cardWrapper}>
-      {cardData.map((item, index) => (
-        <MenuCard
-          key={index}
-          cardTitle={item.cardTitle}
-          cardText={item.cardText}
-          image={item.image}
-        />
-      ))}
-    </View>
-  </ScrollView>
-);
-
-// components
-const sandwichesMenuPage = () => (
-  <ScrollView
-    style={{ paddingTop: 20, marginBottom: 20 }}
-    showsVerticalScrollIndicator={false}
-  >
-    <View style={styles.cardWrapper}>
-      {cardData.map((item, index) => (
-        <MenuCard
-          key={index}
-          cardTitle={item.cardTitle}
-          cardText={item.cardText}
-          image={item.image}
-        />
-      ))}
-    </View>
-  </ScrollView>
-);
-
-// components
-const drinkMenuPage = () => (
-  <ScrollView
-    style={{ paddingTop: 20, marginBottom: 20 }}
-    showsVerticalScrollIndicator={false}
-  >
-    <View style={styles.cardWrapper}>
-      {cardData.map((item, index) => (
-        <MenuCard
-          key={index}
-          cardTitle={item.cardTitle}
-          cardText={item.cardText}
-          image={item.image}
-        />
-      ))}
-    </View>
-  </ScrollView>
-);
-
-// components
-const sideMenuPage = () => (
-  <ScrollView
-    style={{ paddingTop: 20, marginBottom: 20 }}
-    showsVerticalScrollIndicator={false}
-  >
-    <View style={styles.cardWrapper}>
-      {cardData.map((item, index) => (
-        <MenuCard
-          key={index}
-          cardTitle={item.cardTitle}
-          cardText={item.cardText}
-          image={item.image}
-        />
-      ))}
-    </View>
-  </ScrollView>
-);
-
-// components
-const renderTabBar = (props: TabBarProps<Route>) => (
-  <TabBar
-    {...props}
-    bounces={true}
-    // textとindicatorの位置を合わせる
-    indicatorStyle={{
-      width: Dimensions.get("window").width / 3.3,
-      height: "100%",
-      backgroundColor: "#F3C13A",
-      borderRadius: 100,
-    }}
-    style={{
-      backgroundColor: "#fff",
-      elevation: 0,
-      shadowColor: "transparent",
-      marginTop: 20,
-      marginBottom: 10,
-      marginLeft: 10,
-      marginRight: 10,
-      justifyContent: "space-between",
-    }}
-    contentContainerStyle={{}}
-    tabStyle={{
-      width: Dimensions.get("window").width / 3.3,
-      minHeight: 30,
-    }}
-    scrollEnabled
-    renderLabel={({ route, focused, color }) => (
-      <Text
-        style={{
-          color: focused ? "#fff" : "#000",
-          fontSize: 12,
-          width: "auto",
-          textAlign: "center",
-          fontWeight: "bold",
-        }}
-      >
-        {route.title}
-      </Text>
-    )}
-    gap={5}
-  />
-);
-
-// pages
+/************************
+ * page router
+ * *********************/
 const renderScene = SceneMap({
   first: setMenuPage,
   second: sandwichesMenuPage,
@@ -186,15 +195,17 @@ const renderScene = SceneMap({
   fourth: sideMenuPage,
 });
 
-// renderItem
+/************************
+ * main　render
+ * *********************/
 export default function Index() {
   const layout = useWindowDimensions();
 
   const [index, setIndex] = React.useState(0);
   const [routes] = React.useState([
     { key: "first", title: "セット" },
-    { key: "second", title: "サンドウィッチ" },
-    { key: "third", title: "ドリンク" },
+    { key: "second", title: "ドリンク" },
+    { key: "third", title: "サンドウィッチ" },
     { key: "fourth", title: "サイドメニュー" },
   ]);
 
@@ -210,7 +221,6 @@ export default function Index() {
       />
       <TabView
         style={styles.container}
-        // lazy
         renderTabBar={renderTabBar}
         navigationState={{ index, routes }}
         renderScene={renderScene}
@@ -222,6 +232,9 @@ export default function Index() {
   );
 }
 
+/************************
+ * styles
+ * *********************/
 const styles = StyleSheet.create({
   container: {
     flex: 1,

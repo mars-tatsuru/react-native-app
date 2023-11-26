@@ -1,5 +1,3 @@
-import { StatusBar } from "expo-status-bar";
-import { WebView } from "react-native-webview";
 import {
   StyleSheet,
   Text,
@@ -11,16 +9,21 @@ import {
 } from "react-native";
 import { Link, Stack, Tabs } from "expo-router";
 
+/************************
+ * components
+ * *********************/
 import Card from "src/components/Card";
 import HeaderRight from "src/components/HeaderRight";
 import HeaderLeft from "src/components/HeaderLeft";
-
 import Kv from "src/assets/images/kv.png";
 import CardImg_01 from "src/assets/images/sets.png";
 import CardImg_02 from "src/assets/images/drinks.png";
 import CardImg_03 from "src/assets/images/sandwiches.png";
 import CardImg_04 from "src/assets/images/sides.png";
 
+/************************
+ * card contents
+ * *********************/
 type CardDataType = {
   cardTitle: string;
   cardText: string;
@@ -30,50 +33,36 @@ type CardDataType = {
 const cardData: CardDataType[] = [
   {
     cardTitle: "Sets",
-    cardText: "ここに何か文字が欲しい",
+    cardText: "定番セット",
     image: CardImg_01,
   },
   {
     cardTitle: "Drinks",
-    cardText: "ここに何か文字が欲しい",
+    cardText: "ドリンク・アルコール",
     image: CardImg_02,
   },
   {
     cardTitle: "Sandwiches",
-    cardText: "ここに何か文字が欲しい",
+    cardText: "サンドイッチ",
     image: CardImg_03,
   },
   {
     cardTitle: "Sides",
-    cardText: "ここに何か文字が欲しい",
+    cardText: "サイドメニュー",
     image: CardImg_04,
   },
-  // {
-  //   cardTitle: "Sets",
-  //   cardText: "ここに何か文字が欲しい",
-  //   image: CardImg_01,
-  // },
-  // {
-  //   cardTitle: "Drinks",
-  //   cardText: "ここに何か文字が欲しい",
-  //   image: CardImg_02,
-  // },
-  // {
-  //   cardTitle: "Sandwiches",
-  //   cardText: "ここに何か文字が欲しい",
-  //   image: CardImg_03,
-  // },
-  // {
-  //   cardTitle: "Sides",
-  //   cardText: "ここに何か文字が欲しい",
-  //   image: CardImg_04,
-  // },
 ];
 
+/************************
+ * calc width
+ * *********************/
 const screenWidth = Dimensions.get("window").width - 20;
 const commonWidth = screenWidth - 10;
 const gap = 10;
 
+/************************
+ * main render
+ * *********************/
 export default function App() {
   return (
     <>
@@ -120,6 +109,9 @@ export default function App() {
   );
 }
 
+/************************
+ * styles
+ * *********************/
 const styles = StyleSheet.create({
   container: {
     flex: 1,
