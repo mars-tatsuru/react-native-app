@@ -44,10 +44,7 @@ const setMenuPage = () => (
 );
 
 const sandwichesMenuPage = () => (
-  <ScrollView
-    style={{ paddingTop: 20, marginBottom: 20 }}
-    showsVerticalScrollIndicator={false}
-  >
+  <ScrollView style={{ marginBottom: 20 }} showsVerticalScrollIndicator={false}>
     <View style={styles.cardWrapper}>
       {cardData.map((item, index) => (
         <MenuCard
@@ -62,10 +59,7 @@ const sandwichesMenuPage = () => (
 );
 
 const drinkMenuPage = () => (
-  <ScrollView
-    style={{ paddingTop: 20, marginBottom: 20 }}
-    showsVerticalScrollIndicator={false}
-  >
+  <ScrollView style={{ marginBottom: 20 }} showsVerticalScrollIndicator={false}>
     <View style={styles.cardWrapper}>
       {cardData.map((item, index) => (
         <MenuCard
@@ -80,10 +74,7 @@ const drinkMenuPage = () => (
 );
 
 const sideMenuPage = () => (
-  <ScrollView
-    style={{ paddingTop: 20, marginBottom: 20 }}
-    showsVerticalScrollIndicator={false}
-  >
+  <ScrollView style={{ marginBottom: 20 }} showsVerticalScrollIndicator={false}>
     <View style={styles.cardWrapper}>
       {cardData.map((item, index) => (
         <MenuCard
