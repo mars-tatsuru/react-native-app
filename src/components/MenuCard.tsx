@@ -15,7 +15,7 @@ import {
 import { useNavigation, NavigationProp } from "@react-navigation/native";
 
 interface pageNameProps {
-  menu: undefined;
+  menu: { menuType: string };
 }
 
 export default function Card({
@@ -27,9 +27,15 @@ export default function Card({
   cardText: string;
   image: ImageSourcePropType;
 }) {
+  // const navigation = useNavigation<NavigationProp<pageNameProps>>();
+
+  // const handlePress = () => {
+  //   navigation.navigate("menu", { menuType: cardTitle });
+  // };
+
   return (
-    <View>
-      <Pressable style={styles.card}>
+    <Link href={`menu/${cardTitle}`} style={styles.link}>
+      <View style={styles.card}>
         <Image source={image} style={styles.image} />
         <Text style={styles.cardTitle}>{cardTitle}</Text>
         <Text style={styles.cardText}>{cardText}</Text>
@@ -37,23 +43,26 @@ export default function Card({
           <Text style={styles.price}>￥600円/730Kcal </Text>
           <Ionicons name={"arrow-forward"} size={20} />
         </View>
-      </Pressable>
-    </View>
+      </View>
+    </Link>
   );
 }
 
 const styles = StyleSheet.create({
-  card: {
+  link: {
+    width: Dimensions.get("window").width - 20,
+    borderWidth: 1,
+    borderColor: "#ddd",
+    borderRadius: 15,
     backgroundColor: "#fff",
+    marginBottom: 10,
+  },
+
+  card: {
     paddingTop: 20,
     paddingLeft: 20,
     paddingRight: 20,
     paddingBottom: 20,
-    borderWidth: 1,
-    borderColor: "#ddd",
-    borderRadius: 15,
-    marginBottom: 20,
-    width: Dimensions.get("window").width - 20,
   },
 
   image: {
