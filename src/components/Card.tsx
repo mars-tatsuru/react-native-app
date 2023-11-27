@@ -9,13 +9,24 @@ import {
   Dimensions,
   TouchableOpacity,
 } from "react-native";
-import { useNavigation, NavigationProp } from "@react-navigation/native";
+import {
+  useNavigation,
+  NavigationProp,
+  useRoute,
+} from "@react-navigation/native";
 
 /***********************
  * components
  *********************/
 interface pageNameProps {
-  menu: undefined;
+  menu:
+    | undefined
+    | {
+        screen: string;
+        params: {
+          id: string;
+        };
+      };
 }
 
 /***********************
@@ -25,16 +36,19 @@ export default function Card({
   cardTitle,
   cardText,
   image,
+  id,
 }: {
   cardTitle: string;
   cardText: string;
   image: ImageSourcePropType;
+  id: string;
 }) {
   const navigation = useNavigation<NavigationProp<pageNameProps>>();
+  const route = useRoute();
 
   // TODO: 画面遷移
   const handleCardPress = () => {
-    navigation.navigate("menu");
+    navigation.navigate("menu", { screen: "index", params: { id: id } });
   };
 
   return (

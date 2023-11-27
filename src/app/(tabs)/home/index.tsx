@@ -28,6 +28,7 @@ type CardDataType = {
   cardTitle: string;
   cardText: string;
   image: ImageSourcePropType;
+  id: string;
 };
 
 const cardData: CardDataType[] = [
@@ -35,21 +36,25 @@ const cardData: CardDataType[] = [
     cardTitle: "Sets",
     cardText: "定番セット",
     image: CardImg_01,
+    id: "sets",
   },
   {
     cardTitle: "Drinks",
     cardText: "ドリンク・アルコール",
     image: CardImg_02,
+    id: "drinks",
   },
   {
     cardTitle: "Sandwiches",
     cardText: "サンドイッチ",
     image: CardImg_03,
+    id: "sandwiches",
   },
   {
     cardTitle: "Sides",
     cardText: "サイドメニュー",
     image: CardImg_04,
+    id: "sides",
   },
 ];
 
@@ -100,6 +105,7 @@ export default function App() {
                 cardTitle={item.cardTitle}
                 cardText={item.cardText}
                 image={item.image}
+                id={item.id}
               />
             ))}
           </View>
