@@ -1,7 +1,13 @@
 import * as React from "react";
 import { StatusBar } from "expo-status-bar";
 import { useWindowDimensions } from "react-native";
-import { useNavigation, useRoute, RouteProp } from "@react-navigation/native";
+import {
+  useNavigation,
+  useRoute,
+  RouteProp,
+  NavigationProp,
+} from "@react-navigation/native";
+import { useEffect, useState } from "react";
 import {
   TabView,
   SceneMap,
@@ -34,23 +40,13 @@ import HeaderLeft from "src/components/HeaderLeft";
 export default function Index() {
   const layout = useWindowDimensions();
 
-  const [index, setIndex] = React.useState(0);
+  const [index, setIndex] = useState(0);
   const [routes] = React.useState([
-    { key: "first", title: "セット" },
+    { key: "first", title: "バリューセット" },
     { key: "second", title: "ドリンク" },
     { key: "third", title: "サンドウィッチ" },
     { key: "fourth", title: "サイドメニュー" },
   ]);
-
-  /************************
-   * router
-   * *********************/
-  interface RouteParams {
-    id: string | undefined;
-  }
-
-  const route = useRoute<RouteProp<Record<string, RouteParams>, string>>();
-  const pageId = route.params.id;
 
   /************************
    * tab bar
@@ -143,7 +139,6 @@ export default function Index() {
     <ScrollView
       style={{ marginBottom: 10 }}
       showsVerticalScrollIndicator={false}
-      id={pageId === "sets" ? "sets" : ""}
     >
       <View style={styles.cardWrapper}>
         {cardData.map((item, index) => (
@@ -162,7 +157,6 @@ export default function Index() {
     <ScrollView
       style={{ marginBottom: 20 }}
       showsVerticalScrollIndicator={false}
-      id={pageId === "sandwiches" ? "sandwiches" : ""}
     >
       <View style={styles.cardWrapper}>
         {cardData.map((item, index) => (
@@ -181,7 +175,6 @@ export default function Index() {
     <ScrollView
       style={{ marginBottom: 20 }}
       showsVerticalScrollIndicator={false}
-      id={pageId === "drinks" ? "drinks" : ""}
     >
       <View style={styles.cardWrapper}>
         {cardData.map((item, index) => (
@@ -200,7 +193,6 @@ export default function Index() {
     <ScrollView
       style={{ marginBottom: 20 }}
       showsVerticalScrollIndicator={false}
-      id={pageId === "sides" ? "sides" : ""}
     >
       <View style={styles.cardWrapper}>
         {cardData.map((item, index) => (
@@ -225,18 +217,14 @@ export default function Index() {
     route: Route;
     jumpTo: (key: string) => void;
   }) => {
-    switch (pageId) {
-      case "sets":
-        jumpTo("first");
+    switch (route.key) {
+      case "first":
         return setMenuPage();
-      case "drinks":
-        jumpTo("second");
+      case "second":
         return drinkMenuPage();
-      case "sandwiches":
-        jumpTo("third");
+      case "third":
         return sandwichesMenuPage();
-      case "sides":
-        jumpTo("fourth");
+      case "fourth":
         return sideMenuPage();
       default:
         return null;

@@ -34,13 +34,13 @@ type CardDataType = {
 const cardData: CardDataType[] = [
   {
     cardTitle: "Sets",
-    cardText: "定番セット",
+    cardText: "バリューセット",
     image: CardImg_01,
     id: "sets",
   },
   {
     cardTitle: "Drinks",
-    cardText: "ドリンク・アルコール",
+    cardText: "ドリンク",
     image: CardImg_02,
     id: "drinks",
   },

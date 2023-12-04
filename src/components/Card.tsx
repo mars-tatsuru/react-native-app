@@ -19,14 +19,7 @@ import {
  * components
  *********************/
 interface pageNameProps {
-  menu:
-    | undefined
-    | {
-        screen: string;
-        params: {
-          id: string;
-        };
-      };
+  menu: undefined;
 }
 
 /***********************
@@ -44,11 +37,10 @@ export default function Card({
   id: string;
 }) {
   const navigation = useNavigation<NavigationProp<pageNameProps>>();
-  const route = useRoute();
 
   // TODO: 画面遷移
   const handleCardPress = () => {
-    navigation.navigate("menu", { screen: "index", params: { id: id } });
+    navigation.navigate("menu");
   };
 
   return (
